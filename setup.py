@@ -12,4 +12,4 @@ setup(name='exmod',
       author='loser',
       url='kerkerman',
       ext_modules=[module1]
-        )
+     )

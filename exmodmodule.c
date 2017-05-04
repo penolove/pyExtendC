@@ -18,11 +18,13 @@ static PyObject* exmod_say_hello(PyObject* self, PyObject *args){
     return Py_BuildValue("i",sts);
 }
 
+//seems to regist the method
 static PyMethodDef exmod_methods[] ={
     {"say_hello",  exmod_say_hello, METH_VARARGS, "a fucking hello"},
     {NULL, NULL, 0, NULL}
 };
 
+//init function -> it should be called init(name)
 PyMODINIT_FUNC initexmod(void){
     PyObject *m;
     m = Py_InitModule("exmod",exmod_methods);
@@ -30,5 +32,5 @@ PyMODINIT_FUNC initexmod(void){
 
     exmodError = PyErr_NewException("spam.error", NULL, NULL);
     Py_INCREF(exmodError);
-    PyModule_AddObject(m, "error", exmodError);
+    PyModule_AddObject(m, "error", exmodError); //reigst this error
 }
